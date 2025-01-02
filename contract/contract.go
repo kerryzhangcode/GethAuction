@@ -9,16 +9,24 @@ import (
 )
 
 // 定义结构体与 JSON 数据结构对应
+type Component struct {
+	InternalType string `json:"internalType"`
+	Name         string `json:"name"`
+	Type         string `json:"type"`
+}
+
 type Input struct {
 	InternalType string `json:"internalType"`
 	Name         string `json:"name"`
 	Type         string `json:"type"`
+	Components   []Component `json:"components,omitempty"` // 用于支持嵌套结构
 }
 
 type Output struct {
 	InternalType string `json:"internalType"`
 	Name         string `json:"name"`
 	Type         string `json:"type"`
+	Components   []Component `json:"components,omitempty"` // 用于支持嵌套结构
 }
 
 type ABI struct {
